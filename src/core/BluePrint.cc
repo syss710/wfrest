@@ -291,6 +291,26 @@ void BluePrint::HEAD(const std::string &route, int compute_queue_id, const Serie
     this->ROUTE(route, compute_queue_id, handler, Verb::HEAD);
 }
 
+void BluePrint::OPTIONS(const std::string &route, const Handler &handler)
+{
+    this->ROUTE(route, handler, Verb::OPTIONS);
+}
+
+void BluePrint::OPTIONS(const std::string &route, int compute_queue_id, const Handler &handler)
+{
+    this->ROUTE(route, compute_queue_id, handler, Verb::OPTIONS);
+}
+
+void BluePrint::OPTIONS(const std::string &route, const SeriesHandler &handler)
+{
+    this->ROUTE(route, -1, handler, Verb::OPTIONS);
+}
+
+void BluePrint::OPTIONS(const std::string &route, int compute_queue_id, const SeriesHandler &handler)
+{
+    this->ROUTE(route, compute_queue_id, handler, Verb::OPTIONS);
+}
+
 void BluePrint::add_blueprint(const BluePrint &bp, const std::string &url_prefix)
 {
     bp.router_.routes_map_.all_routes([this, &url_prefix]

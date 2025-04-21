@@ -54,6 +54,14 @@ public:
 
     void HEAD(const std::string &route, int compute_queue_id, const Handler &handler);
 
+    void OPTIONS(const std::string &route, const Handler &handler);
+
+    void OPTIONS(const std::string &route, int compute_queue_id, const Handler &handler);
+
+    void OPTIONS(const std::string &route, const SeriesHandler &handler);
+
+    void OPTIONS(const std::string &route, int compute_queue_id, const SeriesHandler &handler);
+
 public:
     template<typename... AP>
     void ROUTE(const std::string &route, const Handler &handler, 

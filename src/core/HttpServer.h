@@ -100,6 +100,15 @@ public:
         blue_print_.HEAD(route, compute_queue_id, handler);
     }
 
+    void OPTIONS(const std::string &route, const Handler &handler)
+    {
+        blue_print_.OPTIONS(route, handler);
+    }
+
+    void OPTIONS(const std::string &route, int compute_queue_id, const Handler &handler)
+    {
+        blue_print_.OPTIONS(route, compute_queue_id, handler);
+    }
 
 public:
     template<typename... AP>
@@ -209,6 +218,19 @@ public:
         blue_print_.HEAD(route, compute_queue_id, handler, ap...);
     }
 
+    template<typename... AP>
+    void OPTIONS(const std::string &route, const Handler &handler, const AP &... ap)
+    {
+        blue_print_.OPTIONS(route, handler, ap...);
+    }
+
+    template<typename... AP>
+    void OPTIONS(const std::string &route, int compute_queue_id,
+             const Handler &handler, const AP &... ap)
+    {
+        blue_print_.OPTIONS(route, compute_queue_id, handler, ap...);
+    }
+
 public:
     void ROUTE(const std::string &route, const SeriesHandler &handler, Verb verb)
     {
@@ -289,6 +311,16 @@ public:
     void HEAD(const std::string &route, int compute_queue_id, const SeriesHandler &handler)
     {
         blue_print_.HEAD(route, compute_queue_id, handler);
+    }
+
+    void OPTIONS(const std::string &route, const SeriesHandler &handler)
+    {
+        blue_print_.OPTIONS(route, handler);
+    }
+
+    void OPTIONS(const std::string &route, int compute_queue_id, const SeriesHandler &handler)
+    {
+        blue_print_.OPTIONS(route, compute_queue_id, handler);
     }
 
 public:
@@ -397,6 +429,19 @@ public:
              const SeriesHandler &handler, const AP &... ap)
     {
         blue_print_.HEAD(route, compute_queue_id, handler, ap...);
+    }
+
+    template<typename... AP>
+    void OPTIONS(const std::string &route, const SeriesHandler &handler, const AP &... ap)
+    {
+        blue_print_.OPTIONS(route, handler, ap...);
+    }
+
+    template<typename... AP>
+    void OPTIONS(const std::string &route, int compute_queue_id,
+             const SeriesHandler &handler, const AP &... ap)
+    {
+        blue_print_.OPTIONS(route, compute_queue_id, handler, ap...);
     }
 
 public:
